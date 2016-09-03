@@ -1,0 +1,4 @@
+[package]
+name = "guessing-game"
+version = "0.1.0"
+authors = ["Ghislain Antony Vaillant <ghisvail@gmail.com>"]
