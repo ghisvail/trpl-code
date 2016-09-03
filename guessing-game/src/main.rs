@@ -9,7 +9,7 @@ fn main() {
 
     // Draw a number from 1 to 100.
     let secret = rand::thread_rng().gen_range(1, 101);
-    println!("The secret number is {}", secret);
+    //println!("The secret number is {}", secret);
 
     println!("Please input your guess.");
 
