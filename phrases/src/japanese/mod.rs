@@ -1,2 +1,2 @@
-mod greetings;
-mod farewells;
+pub mod greetings;
+pub mod farewells;
