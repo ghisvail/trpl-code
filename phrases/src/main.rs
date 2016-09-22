@@ -1,7 +1,7 @@
-extern crate phrases;
+extern crate phrases as sayings;
 
-use phrases::english::{greetings,farewells};
-use phrases::japanese;
+use sayings::english::{greetings,farewells};
+use sayings::japanese;
 
 fn main() {
     println!("Hello in English is {}", greetings::hello());
