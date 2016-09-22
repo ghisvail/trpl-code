@@ -1,2 +1,2 @@
-mod english;
-mod japanese;
+pub mod english;
+pub mod japanese;
