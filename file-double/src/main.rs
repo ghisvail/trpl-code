@@ -3,19 +3,19 @@ use std::io::Read;
 use std::path::Path;
 
 fn file_double<P: AsRef<Path>>(file_path: P) -> Result<i32, String> {
-    File::open(file_path)
-        .map_err(|err| err.to_string())
-        .and_then(|mut file| {
-            let mut content = String::new();
-            file.read_to_string(&mut content)
-                .map_err(|err| err.to_string())
-                .map(|_| content)
-        })
-        .and_then(|content| {
-            content.trim().parse::<i32>()
-                .map_err(|err| err.to_string())
-        })
-        .map(|n| 2 * n)
+    let mut file = match File::open(file_path) {
+        Ok(file) => file,
+        Err(err) => return Err(err.to_string()),
+    };
+    let mut content = String::new();
+    if let Err(err) = file.read_to_string(&mut content) {
+        return Err(err.to_string());
+    };
+    let n: i32 = match content.trim().parse() {
+        Ok(n) => n,
+        Err(err) => return Err(err.to_string()),
+    };
+    Ok(2 * n)
 }
 
 fn main() {
